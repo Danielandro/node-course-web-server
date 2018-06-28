@@ -3,9 +3,15 @@ const hbs = require('hbs');
 const app = express();
 const fs = require('fs');
 
+const port = process.env.PORT || 3000;
+
 hbs.registerPartials(__dirname + '/views/partials');
 // key-value pair. Key = value to be set, value = value to use 
 app.set('view engine', 'hbs');
+
+// app.use((req, res, err) => {
+//     res.render('maintenance');
+// });
 // static assets e.g html, css, js files
 app.use(express.static(__dirname + '/public')); // Express middleware
 app.use((req, res, next) => { 
@@ -19,11 +25,6 @@ app.use((req, res, next) => {
         }    
         next();    
     });   
-    
-});
-
-app.use((req, res, err) => {    
-    res.render('maintenance');
     
 });
 
@@ -56,6 +57,6 @@ app.get('/bad', (req, res) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log('Server is running on Port 3000');
+app.listen(port, () => {
+    console.log(`Server is running on Port ${port}`);
 });
