@@ -12,7 +12,7 @@
   "dependencies": {
     "braces": "^3.0.2",
     "express": "^4.17.1",
-    "handlebars": "~> 4.1.0",
+    "handlebars": "~> 4.3.0",
     "hbs": "^4.0.4"
   },
   "devDependencies": {
